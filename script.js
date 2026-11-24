@@ -79,4 +79,23 @@ function cargar() {
   }
 }
 
+lista.addEventListener('click', function (evento) {
+  const item = evento.target.closest('li.tarea');
+  if (!item) return;
+  const id = Number(item.dataset.id);
+
+  if (evento.target.matches('input[type="checkbox"]')) {
+    const tarea = tareas.find(function (t) { return t.id === id; });
+    tarea.completada = evento.target.checked;
+  } else if (evento.target.matches('.btn-eliminar')) {
+    tareas = tareas.filter(function (t) { return t.id !== id; });
+  } else {
+    return;
+  }
+
+  guardar();
+  mostrar();
+});
+
+tareas = cargar();
 mostrar();
