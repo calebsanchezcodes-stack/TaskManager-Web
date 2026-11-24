@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TaskManager Web</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="encabezado">
+      <h1>TaskManager Web</h1>
+      <p class="subtitulo">Anota lo que tienes pendiente y márcalo cuando lo termines.</p>
+    </header>
+
+    <form id="form-tarea" class="form-tarea" autocomplete="off">
+      <label for="texto-tarea" class="etiqueta">Nueva tarea</label>
+      <div class="fila">
+        <input id="texto-tarea" type="text" maxlength="120" placeholder="Ej. Entregar práctica de Git" required>
+        <button type="submit" class="btn btn-principal">Agregar tarea</button>
+      </div>
+      <p id="mensaje-error" class="error" role="alert" hidden></p>
+    </form>
+
+    <section aria-labelledby="titulo-lista">
+      <h2 id="titulo-lista" class="titulo-lista">Mis tareas</h2>
+      <p id="resumen" class="resumen" aria-live="polite"></p>
+      <ul id="lista-tareas" class="lista"></ul>
+      <p id="vacio" class="vacio">No hay tareas todavía. Escribe una arriba para empezar.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
